@@ -30,14 +30,14 @@ jobs:
       - run:
           name: Show current branch
           command: echo ${BRANCH_NAME}
-      -run:
+      - run:
           name: Installing AWS CLI
           working_directory: /
           command: |
             sudo apt-get -y -qq update
             sudo apt-get install -y awscli
             sudo apt-get install -y python-pip python-dev build-essential
-      -run:
+      - run:
           name: Build Project
           command: |
             npm install
@@ -45,7 +45,7 @@ jobs:
             cd build
             zip ../build.zip -r * .[^.]*
             echo "Build succesful"
-      -run:
+      - run:
           name: Deploy to AWS S3
           command: |
             if [ "${CURRENT_BRANCH}" == "master" ]
@@ -66,14 +66,14 @@ jobs:
       - run:
           name: Show current branch
           command: echo ${BRANCH_NAME}
-      -run:
+      - run:
           name: Installing AWS CLI
           working_directory: /
           command: |
             sudo apt-get -y -qq update
             sudo apt-get install -y awscli
             sudo apt-get install -y python-pip python-dev build-essential
-      -run:
+      - run:
           name: Build Project
           command: |
             npm install
@@ -81,7 +81,7 @@ jobs:
             cd build
             zip ../build.zip -r * .[^.]*
             echo "Build succesful"
-      -run:
+      - run:
           name: Deploy to AWS Cloudfront
           command: |
             aws configure set preview.cloudfront
