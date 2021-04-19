@@ -8,7 +8,7 @@ executors:
     working_directory: ~/repo
   slack-executor:
     docker:
-      - image: "cimg/base:stable"
+      - image: "cibuilds/base:latest"
     resource_class: small
 aliases:
   - &show-current-branch-name
@@ -135,7 +135,7 @@ jobs:
                   "type": "header",
                   "text": {
                     "type": "plain_text",
-                    "text": "${CIRCLE_BRANCH} branch deployment to aws s3 and cloudfront is complete. 👍"
+                    "text": "${CIRCLE_BRANCH} branch deployment to aws s3 and cloudfront is complete. 👍",
                     "emoji":true
                   }
                 },
